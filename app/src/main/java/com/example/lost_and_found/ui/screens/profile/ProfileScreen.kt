@@ -12,14 +12,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.lost_and_found.R
 import com.example.lost_and_found.ui.components.profile.PersonalInfoSection
 import com.example.lost_and_found.ui.components.profile.ProfileActions
 import com.example.lost_and_found.ui.components.profile.ProfileHeader
+import com.example.lost_and_found.ui.screens.login.LoginViewModel
+import com.example.lost_and_found.ui.screens.signup.SignUpViewModel
 
 
 @Composable
-fun ProfileScreen(modifier: Modifier = Modifier) {
+fun ProfileScreen(onSignOut: () -> Unit = {},
+                  profileViewModel: ProfileViewModel = hiltViewModel(),
+                  loginViewModel: LoginViewModel = hiltViewModel(),
+                  signUpViewModel: SignUpViewModel = hiltViewModel()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -34,8 +40,11 @@ fun ProfileScreen(modifier: Modifier = Modifier) {
 
         // Profile Actions Section
         ProfileActions(
-            onEditClicked = { /* Handle Edit Action */ },
-            onLogoutClicked = { /* Handle Logout Action */ }
+            onEditClicked = {  },
+            onLogoutClicked = { profileViewModel.signOut()
+                onSignOut()
+                loginViewModel.resetLoginFlow()
+                signUpViewModel.resetRegisterFlow() }
         )
     }
 }

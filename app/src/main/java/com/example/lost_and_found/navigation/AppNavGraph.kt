@@ -33,7 +33,14 @@ fun NavHostProvider(
 
         composable(route = Profile.route) {
             //call our 'Profile' Screen Here
-            ProfileScreen(modifier = modifier)
+            ProfileScreen(
+                onSignOut = {
+                    navController.popBackStack()
+                    navController.navigate(Login.route) {
+                        popUpTo(HomeScreen.route) { inclusive = true }
+                    }
+                },
+            )
         }
 
         composable(route = HomeScreen.route) {

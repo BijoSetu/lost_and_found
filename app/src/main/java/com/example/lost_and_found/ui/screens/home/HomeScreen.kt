@@ -16,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.lost_and_found.data.model.fakeLostItems
 import com.example.lost_and_found.navigation.HomeScreen
 import com.example.lost_and_found.navigation.Items
+import com.example.lost_and_found.navigation.Login
 //import com.example.lost_and_found.navigation.Login
 import com.example.lost_and_found.navigation.NavHostProvider
 import com.example.lost_and_found.navigation.allDestinations
@@ -37,7 +38,7 @@ fun HomeScreen(
     val currentNavBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = currentNavBackStackEntry?.destination
     val currentBottomScreen =
-        allDestinations.find { it.route == currentDestination?.route } ?: HomeScreen
+        allDestinations.find { it.route == currentDestination?.route } ?: Login
 
     var startScreen = currentBottomScreen
     val currentUser = homeViewModel.currentUser

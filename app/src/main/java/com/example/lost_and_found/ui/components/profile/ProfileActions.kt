@@ -29,7 +29,7 @@ fun ProfileActions(onEditClicked: () -> Unit, onLogoutClicked: () -> Unit) {
                 .padding(bottom = 8.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6200EE))
         ) {
-            Text(text = "Edit Profile", color = Color.White)
+            Text(text = "Edit Profile Picture", color = Color.White)
         }
 
         // Log Out Button

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "728272882480",
-    "project_id": "lostandfound-33290",
-    "storage_bucket": "lostandfound-33290.firebasestorage.app"
+    "project_number": "742005458644",
+    "project_id": "lostandfound-68252",
+    "storage_bucket": "lostandfound-68252.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:728272882480:android:ae3490e38382e51dfd96f5",
+        "mobilesdk_app_id": "1:742005458644:android:096840e5a0ee5c02449d41",
         "android_client_info": {
           "package_name": "com.example.lost_and_found"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyANCT0BdRMpXV4U_wBhkJdrlghk5yDVA1I"
+          "current_key": "AIzaSyDT7E_tcqjLHgYyAWJcIGckXKPRt29iQvc"
         }
       ],
       "services": {

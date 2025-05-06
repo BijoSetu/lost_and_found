@@ -1,13 +1,13 @@
 [versions]
 agp = "8.8.0"
-kotlin = "2.0.0"
-coreKtx = "1.16.0"
+kotlin = "2.0.20"
+coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
-composeBom = "2024.04.01"
+composeBom = "2025.03.00"
 
 materialIconsExtended = "1.7.8"
 navigationCompose = "2.8.7"
@@ -29,6 +29,13 @@ retrofit = "2.11.0"
 googleGmsGoogleServices = "4.4.2"
 firebaseAuth = "23.2.0"
 playServicesAuth = "21.3.0"
+firebaseCommonKtx = "21.0.0"
+
+#coil
+coilCompose = "2.6.0"
+
+#firestore
+firebaseFirestore = "25.1.4"
 
 
 [libraries]
@@ -66,12 +73,17 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 
+#coil
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+
 #Retrofit
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }#Google Services
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
+firebase-common-ktx = { group = "com.google.firebase", name = "firebase-common-ktx", version.ref = "firebaseCommonKtx" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 
 [plugins]#
 android-application = { id = "com.android.application", version.ref = "agp" }

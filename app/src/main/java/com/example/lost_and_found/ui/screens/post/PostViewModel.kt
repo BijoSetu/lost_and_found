@@ -1,5 +1,4 @@
-package com.example.lost_and_found.ui.screens.items
-
+package com.example.lost_and_found.ui.screens.post
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -15,40 +14,31 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class ItemsViewModel @Inject
+class PostViewModel @Inject
 constructor(private val repository: FireStoreService,
 
             ) : ViewModel() {
-    private val _lostItems
-            = MutableStateFlow<List<LostItemModel>>(emptyList())
-    val uiLostItems: StateFlow<List<LostItemModel>>
-            = _lostItems.asStateFlow()
+    //    private val _lostItems
+//            = MutableStateFlow<List<LostItemModel>>(emptyList())
+//    val uiLostItems: StateFlow<List<LostItemModel>>
+//            = _lostItems.asStateFlow()
     var iserror = mutableStateOf(false)
     var isloading = mutableStateOf(false)
     var error = mutableStateOf(Exception())
 
 
-    init { getAllLostItems() }
-
-    fun getAllLostItems() {
+    fun postLostItem(lostItem: LostItemModel) =
         viewModelScope.launch {
             try {
                 isloading.value = true
-                repository.getAll().collect{ items ->
-                    _lostItems.value = items
-                    iserror.value = false
-                    isloading.value = false
-                }
-                Timber.i("DVM RVM = : ${_lostItems.value}")
-            }
-            catch(e:Exception) {
-                iserror.value = true
+                repository.insert(lostItem)
+                iserror.value = false
                 isloading.value = false
+            } catch (e: Exception) {
+                iserror.value = true
                 error.value = e
-                Timber.i("RVM Error ${e.message}")
+                isloading.value = false
             }
+            Timber.i("DVM Insert Message = : ${error.value.message} and isError ${iserror.value}")
         }
-    }
-
-
 }

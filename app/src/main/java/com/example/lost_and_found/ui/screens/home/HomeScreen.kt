@@ -9,6 +9,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -19,6 +20,7 @@ import com.example.lost_and_found.navigation.Items
 import com.example.lost_and_found.navigation.NavHostProvider
 import com.example.lost_and_found.navigation.allDestinations
 import com.example.lost_and_found.navigation.bottomAppBarDestinations
+import com.example.lost_and_found.navigation.userSignedOutDestinations
 //import com.example.lost_and_found.navigation.userSignedOutDestinations
 import com.example.lost_and_found.ui.components.general.BottomAppBarProvider
 import com.example.lost_and_found.ui.components.general.LostItemCard
@@ -29,7 +31,7 @@ import com.example.lost_and_found.ui.components.general.TopBar
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-//    homeViewModel: HomeViewModel = hiltViewModel(),
+    homeViewModel: HomeViewModel = hiltViewModel(),
     navController: NavHostController = rememberNavController(),
 ) {
     val currentNavBackStackEntry by navController.currentBackStackEntryAsState()
@@ -38,13 +40,15 @@ fun HomeScreen(
         allDestinations.find { it.route == currentDestination?.route } ?: HomeScreen
 
     var startScreen = currentBottomScreen
-//    val currentUser = homeViewModel.currentUser
-//    val isActiveSession = homeViewModel.isAuthenticated()
-//    val userEmail = if (isActiveSession) currentUser?.email else ""
-//    val userName = if (isActiveSession) currentUser?.displayName else ""
-    val userDestinations =  bottomAppBarDestinations
+    val currentUser = homeViewModel.currentUser
+    val isActiveSession = homeViewModel.isAuthenticated()
+    val userEmail = if (isActiveSession) currentUser?.email else ""
+    val userName = if (isActiveSession) currentUser?.displayName else ""
+    val userDestinations = if (!isActiveSession)
+        userSignedOutDestinations
+    else bottomAppBarDestinations
 
-        startScreen = Items
+    if (isActiveSession) startScreen = Items
 
     Scaffold(
         modifier = modifier,
@@ -53,8 +57,8 @@ fun HomeScreen(
                 navController = navController,
                 currentScreen = currentBottomScreen,
                 canNavigateBack = navController.previousBackStackEntry != null,
-//                email = userEmail!!,
-//                name = userName!!,
+                email = userEmail!!,
+                name = userName!!,
             ) { navController.navigateUp() }
         },
         content = { paddingValues ->

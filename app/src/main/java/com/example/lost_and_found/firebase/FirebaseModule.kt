@@ -6,9 +6,13 @@ import android.content.Context
 import androidx.credentials.CredentialManager
 import androidx.credentials.GetCredentialRequest
 import com.example.lost_and_found.R
+import com.example.lost_and_found.firebase.auth.AuthRepository
 import com.example.lost_and_found.firebase.database.FireStoreRepository
+import com.example.lost_and_found.firebase.services.AuthService
 import com.example.lost_and_found.firebase.services.FireStoreService
 import com.google.android.gms.auth.api.identity.SignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 //import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 //import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.firebase.Firebase
@@ -27,8 +31,8 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 object FirebaseModule {
 
-//    @Provides
-//    fun provideFirebaseAuth(): FirebaseAuth = Firebase.auth
+    @Provides
+    fun provideFirebaseAuth(): FirebaseAuth = Firebase.auth
 
     @Provides
     fun provideFirebaseFirestore()
@@ -36,10 +40,10 @@ object FirebaseModule {
 
     @Provides
     fun provideFirestoreRepository(
-//        auth: AuthService,
+        auth: AuthService,
         firebaseFirestore: FirebaseFirestore
     ) : FireStoreService = FireStoreRepository(
-//        auth = auth,
+        auth = auth,
         firestore = firebaseFirestore
     )
 
@@ -51,30 +55,30 @@ object FirebaseModule {
 //        .requestEmail()
 //        .build()
 
-//    @Provides
-//    fun provideAuthRepository(
-//        auth: FirebaseAuth
-//    ): AuthService = AuthRepository(
-//        firebaseAuth = auth)
-//
-//    @Provides
-//    fun provideCredentialManager(
-//        @ApplicationContext
-//        context: Context
-//    ) = CredentialManager.create(context)
-//
-//    @Provides
-//    fun provideGoogleIdOptions(
-//        app: Application
-//    ) = GetGoogleIdOption.Builder()
-//        .setFilterByAuthorizedAccounts(false)
-//        .setServerClientId(app.getString(R.string.web_client_id))
-//        .build()
-//
-//    @Provides
-//    fun getCredentialRequest(
-//        googleIdOption: GetGoogleIdOption
-//    ) = GetCredentialRequest.Builder()
-//        .addCredentialOption(googleIdOption)
-//        .build()
+    @Provides
+    fun provideAuthRepository(
+        auth: FirebaseAuth
+    ): AuthService = AuthRepository(
+        firebaseAuth = auth)
+
+    @Provides
+    fun provideCredentialManager(
+        @ApplicationContext
+        context: Context
+    ) = CredentialManager.create(context)
+
+    @Provides
+    fun provideGoogleIdOptions(
+        app: Application
+    ) = GetGoogleIdOption.Builder()
+        .setFilterByAuthorizedAccounts(false)
+        .setServerClientId(app.getString(R.string.web_client_id))
+        .build()
+
+    @Provides
+    fun getCredentialRequest(
+        googleIdOption: GetGoogleIdOption
+    ) = GetCredentialRequest.Builder()
+        .addCredentialOption(googleIdOption)
+        .build()
 }

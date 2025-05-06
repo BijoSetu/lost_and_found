@@ -62,20 +62,20 @@ object HomeScreen : AppDestination {
 }
 
 
-//object Login : AppDestination {
-//    override val icon = Icons.AutoMirrored.Filled.Login
-//    override val label = "Login"
-//    override val route = "login"
-//}
+object Login : AppDestination {
+    override val icon = Icons.AutoMirrored.Filled.Login
+    override val label = "Login"
+    override val route = "login"
+}
 //
-//object Register : AppDestination {
-//    override val icon = Icons.Default.AccountCircle
-//    override val label = "Register"
-//    override val route = "register"
-//}
+object SignUp : AppDestination {
+    override val icon = Icons.Default.AccountCircle
+    override val label = "SignUp"
+    override val route = "SignUp"
+}
 
 val bottomAppBarDestinations = listOf(Items, Post, Chat, Profile)
-//val userSignedOutDestinations = listOf(Login, Register)
+val userSignedOutDestinations = listOf(Login, SignUp)
 val allDestinations = listOf(Items, Post, Chat,
     HomeScreen,  Profile,)
 

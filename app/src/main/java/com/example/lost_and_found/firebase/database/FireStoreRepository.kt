@@ -2,7 +2,9 @@ package com.example.lost_and_found.firebase.database
 
 
 import com.example.lost_and_found.data.rules.Constants.Lost_Items
+import com.example.lost_and_found.firebase.services.AuthService
 import com.example.lost_and_found.firebase.services.FireStoreService
+import com.example.lost_and_found.firebase.services.LostItem
 import com.example.lost_and_found.firebase.services.LostItems
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.dataObjects
@@ -11,10 +13,11 @@ import com.google.firebase.firestore.toObject
 import kotlinx.coroutines.tasks.await
 import java.util.Date
 import javax.inject.Inject
+import kotlinx.coroutines.tasks.await
 
 
 class FireStoreRepository
-@Inject constructor(
+@Inject constructor(private val auth: AuthService,
                     private val firestore: FirebaseFirestore
 ) : FireStoreService {
 
@@ -28,16 +31,16 @@ class FireStoreRepository
 //            .document(donationId).get().await().toObject()
 //    }
 //
-//    override suspend fun insert(email: String,
-//                                donation: Donation)
-//    {
+    override suspend fun insert(
+                                lostItems: LostItem)
+    {
 //        val donationWithEmail = donation.copy(email = email)
-//
-//        firestore.collection(DONATION_COLLECTION)
+
+        firestore.collection(Lost_Items).add(lostItems) // attach email to userId field
+            .await()
 //            .add(donationWithEmail)
-//            .await()
-//
-//    }
+
+    }
 //
 //    override suspend fun update(email: String,
 //                                donation: Donation) {

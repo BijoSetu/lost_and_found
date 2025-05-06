@@ -39,8 +39,8 @@ fun TopBar(
     navController: NavController,
     currentScreen: AppDestination,
     canNavigateBack: Boolean,
-//    email: String,
-//    name: String,
+    email: String,
+    name: String,
     navigateUp: () -> Unit = {}
 )
 {
@@ -51,22 +51,22 @@ fun TopBar(
                     text = currentScreen.label,
                     color = Color.White
                 )
-//                Row {
-//                    if (name.isNotEmpty())
-//                        Text(
-//                            text = name,
-//                            color = MaterialTheme.colorScheme.tertiaryContainer,
-//                            fontSize = 14.sp,
-//                            fontWeight = FontWeight.Bold
-//                        )
-//                    if (email.isNotEmpty())
-//                        Text(
-//                            text = " ($email)",
-//                            color = Color.LightGray,
-//                            fontSize = 14.sp,
-//                            fontWeight = FontWeight.Bold
-//                        )
-//                }
+                Row {
+                    if (name.isNotEmpty())
+                        Text(
+                            text = name,
+                            color = MaterialTheme.colorScheme.tertiaryContainer,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    if (email.isNotEmpty())
+                        Text(
+                            text = " ($email)",
+                            color = Color.LightGray,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                }
             }
         },
         colors = TopAppBarDefaults.largeTopAppBarColors(

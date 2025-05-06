@@ -13,6 +13,9 @@ import com.example.lost_and_found.ui.screens.home.HomeScreen
 //import com.example.lost_and_found.ui.screens.login.LoginScreen
 import com.example.lost_and_found.ui.screens.post.PostScreen
 import com.example.lost_and_found.ui.screens.profile.ProfileScreen
+import com.example.lost_and_found.ui.screens.signup.SignUpScreen
+import ie.setu.donationx.ui.screens.login.LoginScreen
+
 //import com.example.lost_and_found.ui.screens.signup.RegisterScreen
 
 
@@ -61,21 +64,21 @@ fun NavHostProvider(
             PostScreen(modifier = modifier)
         }
 //
-//        composable(route = Login.route) {
-//            //call our 'Login' Screen Here
-//            LoginScreen(
-//                navController = navController,
-//                onLogin = { navController.popBackStack() }
-//            )
-//        }
+        composable(route = Login.route) {
+            //call our 'Login' Screen Here
+            LoginScreen(
+                navController = navController,
+                onLogin = { navController.popBackStack() }
+            )
+        }
 
-//        composable(route = Register.route) {
-//            //call our 'Register' Screen Here
-//            RegisterScreen(
-//                navController = navController,
-//                onRegister = { navController.popBackStack() }
-//            )
-//        }
+        composable(route = SignUp.route) {
+            //call our 'Register' Screen Here
+            SignUpScreen(
+                navController = navController,
+                onRegister = { navController.popBackStack() }
+            )
+        }
 
 //        composable(
 //            route = Details.route,

@@ -9,7 +9,8 @@ import java.util.Date
 
 @Entity
 data class LostItemModel(
-    @DocumentId val _id: String = "N/A",
+    @DocumentId val documentId: String = "N/A",
+    val _id: String = "N/A",
     val title: String = "Untitled",
     val description: String = "Untitled",
     val subtitle: String = "No description",

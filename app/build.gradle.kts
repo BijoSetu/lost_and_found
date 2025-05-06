@@ -95,6 +95,9 @@ dependencies {
     //Firebase
     implementation(libs.firebase.auth)
 
+//    google id
+    implementation(libs.googleid)
+
     //Coil
     implementation(libs.coil.compose)
 

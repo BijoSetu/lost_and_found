@@ -10,7 +10,7 @@ typealias LostItems = Flow<List<LostItem>>
 interface FireStoreService {
 
     suspend fun getAll() : LostItems
-//    suspend fun get(email: String, donationId: String) : LostItem?
+    suspend fun get(email: String) : LostItems
     suspend fun insert(lostItem: LostItem)
 //    suspend fun update(email: String, donation: LostItem)
 //    suspend fun delete(email: String, donationId: String)

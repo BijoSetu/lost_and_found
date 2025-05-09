@@ -20,11 +20,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.lost_and_found.data.model.LostItemModel
 import com.example.lost_and_found.ui.components.postItems.FoundDatePicker
 import com.example.lost_and_found.ui.components.postItems.LostItemInputField
+import com.example.lost_and_found.ui.screens.home.HomeViewModel
 import java.util.Date
 import java.util.UUID
 
 @Composable
-fun PostScreen(modifier: Modifier = Modifier,postViewModel: PostViewModel = hiltViewModel()) {
+fun PostScreen(modifier: Modifier = Modifier,postViewModel: PostViewModel = hiltViewModel(),homeViewModel: HomeViewModel = hiltViewModel()) {
     var title by remember { mutableStateOf("") }
     var subtitle by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
@@ -34,7 +35,7 @@ fun PostScreen(modifier: Modifier = Modifier,postViewModel: PostViewModel = hilt
     var message by remember { mutableStateOf("") }
     var foundDate by remember { mutableStateOf(Date()) }
 
-    val userId = "test1@gmail.com" // later replace with auth uid
+    val userId = homeViewModel.email.value
 
 
     Column(

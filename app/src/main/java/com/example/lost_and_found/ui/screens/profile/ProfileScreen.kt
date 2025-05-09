@@ -1,5 +1,6 @@
 package com.example.lost_and_found.ui.screens.profile
 
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -7,6 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,6 +30,8 @@ fun ProfileScreen(onSignOut: () -> Unit = {},
                   profileViewModel: ProfileViewModel = hiltViewModel(),
                   loginViewModel: LoginViewModel = hiltViewModel(),
                   signUpViewModel: SignUpViewModel = hiltViewModel()) {
+
+    val photoUri: Uri? by remember { mutableStateOf(profileViewModel.photoUri) }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -33,10 +39,14 @@ fun ProfileScreen(onSignOut: () -> Unit = {},
             .padding(bottom = 16.dp)
     ) {
         // Profile Header Section
-        ProfileHeader(userName = "John Doe", userDescription = "Android Developer", profileImage = R.drawable.profile_image)
+        if(photoUri.toString().isNotEmpty())
+        ProfileHeader(userName = profileViewModel.displayName, userDescription = "Android Developer", profileImage = R.drawable.profile_image,photoUri=photoUri)
+        else
+            ProfileHeader(userName = profileViewModel.displayName, userDescription = "Android Developer", profileImage = R.drawable.profile_image)
 
         // Personal Info Section
-        PersonalInfoSection(name = "John Doe", email = "john.doe@example.com", location = "New York, USA")
+        PersonalInfoSection(name = profileViewModel.displayName, email = profileViewModel.email
+            , location = "New York, USA")
 
         // Profile Actions Section
         ProfileActions(

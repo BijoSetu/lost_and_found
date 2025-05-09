@@ -10,6 +10,7 @@ import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Details
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Inventory
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.key.Key.Companion.Home
@@ -40,10 +41,10 @@ object Profile : AppDestination {
     override val route = "profile"
 }
 
-object Chat : AppDestination {
-    override val icon = Icons.AutoMirrored.Filled.Chat
-    override val label = "Chat"
-    override val route = "chat"
+object MyItems : AppDestination {
+    override val icon = Icons.Filled.Inventory
+    override val label = "MyItems"
+    override val route = "myItems"
 }
 
 //object Details : AppDestination {
@@ -74,9 +75,9 @@ object SignUp : AppDestination {
     override val route = "SignUp"
 }
 
-val bottomAppBarDestinations = listOf(Items, Post, Chat, Profile)
+val bottomAppBarDestinations = listOf(Items, Post, MyItems, Profile)
 val userSignedOutDestinations = listOf(Login, SignUp)
-val allDestinations = listOf(Items, Post, Chat,
+val allDestinations = listOf(Items, Post, MyItems,
     HomeScreen,  Profile,)
 
 

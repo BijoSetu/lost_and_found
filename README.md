@@ -13,6 +13,13 @@ This is a mobile app built using the MVVM architecture pattern. It uses Firebase
 - MVVM architecture
 - Firebase integration
 - LiveData and ViewModel usage
+- Users can view lost items and report found items
+- Login options using email or google id
+- Option to change profile picture
+- Option to update the posted item
+- Option to delete the posted item
+- Option to delete the logout the existing user
+- Swipe to update and delete option
 
 ## 🚀 Getting Started
 
@@ -28,3 +35,5 @@ This is a mobile app built using the MVVM architecture pattern. It uses Firebase
 ### UML  Diagram
 
 ![UML Flow Diagram](assets/UML.png)
+
+

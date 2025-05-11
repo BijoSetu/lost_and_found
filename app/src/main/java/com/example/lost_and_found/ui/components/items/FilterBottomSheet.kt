@@ -17,30 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Button
 
-//@Composable
-//fun FilterBottomSheet(
-//    selected: List<String>,
-//    onToggle: (String) -> Unit, // Use String instead of Category
-//    onClose: () -> Unit
-//) {
-//    Column(modifier = Modifier.padding(4.dp)) {
-//        Text("Filter by Category", style = MaterialTheme.typography.titleMedium)
-//        Spacer(modifier = Modifier.padding(2.dp))
-//        // List of categories as Strings
-//        listOf("PETS", "WALLETS", "ELECTRONICS", "OTHERS", "ALL").forEach { category -> // Directly use Strings
-//            Row(verticalAlignment = Alignment.CenterVertically) {
-//                Checkbox(
-//                    checked = selected.contains(category),
-//                    onCheckedChange = { onToggle(category) }
-//                )
-//                Text(text = category) // Display the category string
-//            }
-//        }
-//        Button(onClick = { onClose() }, modifier = Modifier.fillMaxWidth()) {
-//            Text("Apply")
-//        }
-//    }
-//}
+
 
 @Composable
 fun FilterBottomSheet(

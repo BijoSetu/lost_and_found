@@ -31,58 +31,6 @@ import com.example.lost_and_found.ui.components.general.ShowError
 import com.example.lost_and_found.ui.components.general.ShowLoader
  import timber.log.Timber
 
-//@Composable
-//fun ItemsScreen(modifier: Modifier = Modifier,
-//                itemsviewModel: ItemsViewModel = hiltViewModel()
-//                )
-//{
-//    val items = itemsviewModel.uiLostItems.collectAsState().value
-//    val isError = itemsviewModel.iserror.value
-//    val error = itemsviewModel.error.value
-//    val isLoading = itemsviewModel.isloading.value
-//
-//    Timber.i("RS : Donations List = $items")
-//
-//    Column {
-//        Column(
-//            modifier = modifier.padding(
-//                start = 24.dp,
-//                end = 24.dp
-//            ),
-//        ) {
-//            if(isLoading) ShowLoader("Loading Items...")
-////            if(!isError)
-////                ShowRefreshList(onClick = { reportViewModel.getDonations() })
-//            if (items.isEmpty() && !isError)
-//                Centre(Modifier.fillMaxSize()) {
-//                    Text(
-//                        color = MaterialTheme.colorScheme.secondary,
-//                        fontWeight = FontWeight.Bold,
-//                        fontSize = 30.sp,
-//                        lineHeight = 34.sp,
-//                        textAlign = TextAlign.Center,
-//                        text = "Items not available",
-//                    )
-//                }
-//            if (!isError) {
-//                LazyColumn(
-//                    modifier = modifier.fillMaxSize()
-//                ) {
-//                    items(items) { item ->
-//                        LostItemCard(item)
-//                    }
-//                }
-//            }
-//            if (isError) {
-//                ShowError(headline = error.message!! + " error...",
-//                    subtitle = error.toString(),
-//                    onClick = { itemsviewModel.getAllLostItems() })
-//            }
-//        }
-//
-//    }
-
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemsScreen(modifier: Modifier = Modifier, itemsViewModel: ItemsViewModel = hiltViewModel()) {

@@ -34,11 +34,11 @@ class FireStoreRepository
     override suspend fun insert(
                                 lostItems: LostItem)
     {
-//        val donationWithEmail = donation.copy(email = email)
+
 
         firestore.collection(Lost_Items).add(lostItems) // attach email to userId field
             .await()
-//            .add(donationWithEmail)
+
 
     }
 

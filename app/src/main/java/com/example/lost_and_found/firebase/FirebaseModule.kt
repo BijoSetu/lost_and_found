@@ -47,13 +47,7 @@ object FirebaseModule {
         firestore = firebaseFirestore
     )
 
-//    @Provides
-//    fun provideGoogleSignInOptions(
-//        app: Application
-//    ) = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//        .requestIdToken(app.getString(R.string.web_client_id))
-//        .requestEmail()
-//        .build()
+
 
     @Provides
     fun provideAuthRepository(

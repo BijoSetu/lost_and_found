@@ -1,6 +1,9 @@
 package com.example.lost_and_found.ui.screens.profile
 
 import android.net.Uri
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.lost_and_found.firebase.services.AuthService
@@ -16,8 +19,11 @@ class ProfileViewModel @Inject constructor(
 ) : ViewModel() {
 
     val displayName get() = auth.currentUser?.displayName.toString()
-    val photoUri get() = authService.customPhotoUri
+    val photoUrl get() = auth.currentUser?.photoUrl.toString()
+
     val email get() = auth.currentUser?.email.toString()
+
+    val photoUri get() = authService.customPhotoUri
 
     fun signOut() {
         viewModelScope.launch { authService.signOut() }
@@ -27,3 +33,5 @@ class ProfileViewModel @Inject constructor(
         viewModelScope.launch { authService.updatePhoto(uri) }
     }
 }
+
+

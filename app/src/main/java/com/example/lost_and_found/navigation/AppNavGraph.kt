@@ -8,8 +8,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.lost_and_found.ui.screens.items.ItemsScreen
-import com.example.lost_and_found.ui.screens.chat.ChatScreen
 import com.example.lost_and_found.ui.screens.home.HomeScreen
+import com.example.lost_and_found.ui.screens.myItems.MyItemsScreen
 //import com.example.lost_and_found.ui.screens.login.LoginScreen
 import com.example.lost_and_found.ui.screens.post.PostScreen
 import com.example.lost_and_found.ui.screens.profile.ProfileScreen
@@ -61,9 +61,9 @@ fun NavHostProvider(
 //                },
 //            )
 //        }
-        composable(route = Chat.route) {
+        composable(route = MyItems.route) {
             //call our 'Chat' Screen Here
-            ChatScreen(modifier = modifier)
+            MyItemsScreen(modifier = modifier)
         }
 
         composable(route = Post.route) {

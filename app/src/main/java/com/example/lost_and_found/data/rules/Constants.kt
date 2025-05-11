@@ -3,7 +3,7 @@ package com.example.lost_and_found.data.rules
 object Constants {
 
     //Firebase
-    const val USER_EMAIL = "email"
+    const val USER_ID = "userId"
     const val Lost_Items =  "lost_items"
 
     //User fields

@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,11 +22,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.lost_and_found.data.model.LostItemModel
 import com.example.lost_and_found.ui.components.postItems.FoundDatePicker
 import com.example.lost_and_found.ui.components.postItems.LostItemInputField
+import com.example.lost_and_found.ui.screens.home.HomeViewModel
 import java.util.Date
 import java.util.UUID
 
 @Composable
-fun PostScreen(modifier: Modifier = Modifier,postViewModel: PostViewModel = hiltViewModel()) {
+fun PostScreen(modifier: Modifier = Modifier,postViewModel: PostViewModel = hiltViewModel(),homeViewModel: HomeViewModel = hiltViewModel()) {
     var title by remember { mutableStateOf("") }
     var subtitle by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
@@ -34,12 +37,12 @@ fun PostScreen(modifier: Modifier = Modifier,postViewModel: PostViewModel = hilt
     var message by remember { mutableStateOf("") }
     var foundDate by remember { mutableStateOf(Date()) }
 
-    val userId = "test1@gmail.com" // later replace with auth uid
+    val userId = homeViewModel.email.value
 
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxSize().verticalScroll(rememberScrollState())
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
@@ -48,11 +51,11 @@ fun PostScreen(modifier: Modifier = Modifier,postViewModel: PostViewModel = hilt
             value = title,
             onValueChange = { title = it }
         )
-        LostItemInputField(
-            label = "Subtitle",
-            value = subtitle,
-            onValueChange = { subtitle = it }
-        )
+//        LostItemInputField(
+//            label = "Subtitle",
+//            value = subtitle,
+//            onValueChange = { subtitle = it }
+//        )
         LostItemInputField(
             label = "Description",
             value = description,
@@ -86,12 +89,12 @@ fun PostScreen(modifier: Modifier = Modifier,postViewModel: PostViewModel = hilt
 
         FoundDatePicker(foundDate) { foundDate = it }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(4.dp))
 
         Button(onClick = {
             val item = LostItemModel(
                 title = title,
-                subtitle = subtitle,
+//                subtitle = subtitle,
                 description = description,
                 category = category,
                 foundLocation = foundLocation,

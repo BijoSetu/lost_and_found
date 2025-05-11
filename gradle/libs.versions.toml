@@ -39,6 +39,7 @@ firebaseFirestore = "25.1.4"
 
 #google-id
 googleid = "1.1.1"
+litertSupportApi = "1.2.0"
 
 
 [libraries]
@@ -92,6 +93,7 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 firebase-common-ktx = { group = "com.google.firebase", name = "firebase-common-ktx", version.ref = "firebaseCommonKtx" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
+litert-support-api = { group = "com.google.ai.edge.litert", name = "litert-support-api", version.ref = "litertSupportApi" }
 
 [plugins]#
 android-application = { id = "com.android.application", version.ref = "agp" }

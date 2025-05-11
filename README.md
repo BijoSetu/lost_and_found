@@ -1,4 +1,4 @@
-# My Android MVVM App
+# Lost And Found App
 
 This is a mobile app built using the MVVM architecture pattern. It uses Firebase as the backend for data storage and retrieval.
 
@@ -23,8 +23,8 @@ This is a mobile app built using the MVVM architecture pattern. It uses Firebase
 
 ### MVVM Class Diagram
 
-![MVVM Class Diagram](assets/Mobile App- Class Diagram 2.drawio.png)
+![MVVM Class Diagram](assets/Class-Diagram.png)
 
 ### UML  Diagram
 
-![UML Flow Diagram](assets/Mobile App UML.png)
+![UML Flow Diagram](assets/UML.png)

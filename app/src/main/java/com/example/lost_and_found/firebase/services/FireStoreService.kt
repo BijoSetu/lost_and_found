@@ -13,5 +13,5 @@ interface FireStoreService {
     suspend fun get(email: String) : LostItems
     suspend fun insert(lostItem: LostItem)
 //    suspend fun update(email: String, donation: LostItem)
-//    suspend fun delete(email: String, donationId: String)
+    suspend fun delete(email: String, lostItemId: String)
 }

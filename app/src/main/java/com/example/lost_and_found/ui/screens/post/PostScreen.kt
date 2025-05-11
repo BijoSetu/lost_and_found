@@ -89,7 +89,7 @@ fun PostScreen(modifier: Modifier = Modifier,postViewModel: PostViewModel = hilt
 
         FoundDatePicker(foundDate) { foundDate = it }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(4.dp))
 
         Button(onClick = {
             val item = LostItemModel(

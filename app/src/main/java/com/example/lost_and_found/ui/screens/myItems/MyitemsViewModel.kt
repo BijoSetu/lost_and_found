@@ -50,9 +50,41 @@ constructor(private val repository: FireStoreService,
         }
     }
 
-//    fun deleteDonation(donation: LostItemModel)
-//            = viewModelScope.launch {
-//        repository.delete(authService.email!!,donation._id)
-//    }
+    fun updateLostItem( lostItem: LostItemModel)
+            = viewModelScope.launch {
+
+        try {
+            isloading.value = true
+            repository.update(authService.email!!,lostItem,lostItem.documentId,)
+            isloading.value = false
+            Timber.i("DVM RVM = : ${_myItems.value}")
+        }
+        catch(e:Exception) {
+            iserror.value = true
+            isloading.value = false
+            error.value = e
+            Timber.i("RVM Error ${e.message}")
+        }
+
+    }
+
+
+    fun deleteLostItem( lostItem: LostItemModel)
+            = viewModelScope.launch {
+
+        try {
+            isloading.value = true
+            repository.delete(authService.email!!,lostItem.documentId)
+            isloading.value = false
+            Timber.i("DVM RVM = : ${_myItems.value}")
+        }
+        catch(e:Exception) {
+            iserror.value = true
+            isloading.value = false
+            error.value = e
+            Timber.i("RVM Error ${e.message}")
+        }
+
+    }
 }
 

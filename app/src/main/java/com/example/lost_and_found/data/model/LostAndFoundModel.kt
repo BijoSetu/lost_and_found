@@ -13,7 +13,7 @@ data class LostItemModel(
     val _id: String = "N/A",
     val title: String = "Untitled",
     val description: String = "Untitled",
-    val subtitle: String = "No description",
+//    val subtitle: String = "No description",
     val foundLocation: String = "Unknown",
     val foundDate: Date = Date(),
     val postedDate: Date = Date(),
@@ -27,7 +27,7 @@ val fakeLostItems = List(30) { i ->
     LostItemModel(
         _id = "item12345$i",
         title = "Lost Item #$i",
-        subtitle = "Subtitle for item #$i",
+//        subtitle = "Subtitle for item #$i",
         foundLocation = "Location #$i",
         foundDate = Date(),
         postedDate = Date(),

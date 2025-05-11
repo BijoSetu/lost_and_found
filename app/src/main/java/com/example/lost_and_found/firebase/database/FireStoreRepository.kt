@@ -41,21 +41,18 @@ class FireStoreRepository
 //            .add(donationWithEmail)
 
     }
-//
-//    override suspend fun update(email: String,
-//                                donation: Donation) {
-//        val donationWithModifiedDate =
-//            donation.copy(dateModified = Date())
-//
-//        firestore.collection(DONATION_COLLECTION)
-//            .document(donation._id)
-//            .set(donationWithModifiedDate).await()
-//    }
-//
-//    override suspend fun delete(email: String,
-//                                donationId: String) {
-//        firestore.collection(DONATION_COLLECTION)
-//            .document(donationId)
-//            .delete().await()
-//    }
+
+    override suspend fun update(email: String,
+                                lostItem: LostItem,lostItemId: String) {
+        firestore.collection(Lost_Items)
+            .document(lostItemId)
+            .set(lostItem).await()
+    }
+
+    override suspend fun delete(email: String,
+                                lostItemId: String) {
+        firestore.collection(Lost_Items)
+            .document(lostItemId)
+            .delete().await()
+    }
 }

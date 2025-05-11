@@ -30,7 +30,7 @@ import coil.request.ImageRequest
 
 
 @Composable
-fun ProfileHeader(userName: String, userDescription: String, profileImage: Int,photoUri: Uri?= null) {
+fun ProfileHeader(userName: String, userDescription: String, profileImage: Int?=null,photoUri: Uri?= null) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -56,7 +56,7 @@ fun ProfileHeader(userName: String, userDescription: String, profileImage: Int,p
                 modifier = Modifier.clip(CircleShape).width(180.dp).height(180.dp)
             )else
                 Image(
-                painter = painterResource(id = profileImage),
+                painter = painterResource(id = profileImage!!),
                 contentDescription = null,
                 contentScale = Crop,
                 modifier = Modifier.clip(CircleShape).width(180.dp).height(180.dp))
